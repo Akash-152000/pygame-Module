@@ -1,17 +1,20 @@
 import pygame
 import random
+import os
 pygame.init()
 
         
 surface=pygame.display.set_mode((900,600))
 pygame.display.set_caption("Template")
 pygame.mixer.init()
-    
+
+player_img=pygame.image.load(r"C:\Users\akash\Desktop\PROJECT\Game\Extra animations and enemies\Alien sprites\alienGreen_walk1.png").convert()
+   
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((50, 50))
-        self.image.fill(green)
+        self.image = player_img
+        self.image.set_colorkey(black)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH / 2, HEIGHT / 2)
 
@@ -47,7 +50,7 @@ while gameLoop:
                 gameLoop=False
 
     all_sprites.update()
-    surface.fill(black)
+    surface.fill(blue)
     all_sprites.draw(surface)
     pygame.display.flip()
     clock.tick(fps)
